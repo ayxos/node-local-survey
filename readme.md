@@ -18,6 +18,8 @@ To access directly to the data
 ![Screenshot](http://s24.postimg.org/400pbo83p/Captura_de_pantalla_2016_02_06_a_las_11_14_33.png)
 
 ## Mongo Schema
+| Key           | Value           |
+| ------------- |:---------------:| 
 | company      	| String        	|
 | name         	| String        	|
 | priority     	| String        	|
