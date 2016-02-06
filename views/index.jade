@@ -1,0 +1,128 @@
+extends ./header.jade
+
+block scripts
+  script(src='js/init.js')
+
+block body
+  section.section
+    .container
+      form.form-horizontal(action='/form', method='POST' enctype="multipart/form-data")
+        fieldset
+          br
+          legend(style='font-size:14px;')
+            | Basic Information: 
+            span(style='color:red') *
+          .row
+            // Text input
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='textinput')
+                | Company 
+                span(style='color:red') *
+              .col-md-9
+                input#textinput.form-control.input-md(name='company', type='text', placeholder='add..', required='true')
+            // Text input
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='textinput')
+                | Name 
+                span(style='color:red') *
+              .col-md-9
+                input#textinput.form-control.input-md(name='name', type='text', placeholder='add..', required='true')
+          .row
+            // Text input
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='textinput') Event
+              .col-md-9
+                input#textinput.form-control.input-md(name='event', type='text', placeholder='Mobile Monetization Summit 2015', value='MWC 2016', disabled='')
+            // Appended Input
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='appendedtext') Date
+              .col-md-9
+                .form-group
+                  input#date.form-control.input-md(name='event_date', style='margin-left: 13px;', disabled='')
+          .col-md-12
+            hr
+          .row
+            // Multiple Radios (inline)
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='priority') Priority
+              .col-md-9
+                label.radio-inline(for='radios-0')
+                  input#radios-0(type='radio', name='priority', value='A')
+                  |       A
+                label.radio-inline(for='radios-1')
+                  input#radios-1(type='radio', name='priority', value='B')
+                  |       B
+                label.radio-inline(for='radios-2')
+                  input#radios-2(type='radio', name='priority', value='C')
+                  |       C
+            // Multiple Checkboxes (inline)
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='company_size')
+                | Company Size 
+                span(style='color:red') *
+              .col-md-9
+                label.radio-inline(for='radios-4')
+                  input#radios-4(type='radio', name='company_size', value='startup', required='true')
+                  |       Startup
+                label.radio-inline(for='radios-5')
+                  input#radios-5(type='radio', name='company_size', value='medium')
+                  |       Medium
+                label.radio-inline(for='radios-6')
+                  input#radios-6(type='radio', name='company_size', value='corporate')
+                  |       Corporate
+          .col-md-12
+            hr
+          .row
+            // Multiple Checkboxes (inline)
+            .form-group.col-md-6
+              label.col-md-3.control-label(for='status') Status
+              .col-md-9
+                label.radio-inline(for='radios-7')
+                  input#radios-7(type='radio', name='status', value='New Client')
+                  |       New Client
+                br
+                label.radio-inline(for='radios-8')
+                  input#radios-8(type='radio', name='status', value='Existing Client')
+                  |       Existing Client
+                br
+          .col-md-12
+            hr
+          .row
+            .col-md-6
+              // Textarea
+              .form-group
+                label.col-md-3.control-label(for='textarea') Notes/Opportunity
+                .col-md-9
+                  textarea#textarea.form-control(name='notes', rows='7')
+            .col-md-6
+              // Textarea
+              .form-group
+                label.col-md-3.control-label(for='textinput')
+                  | Lead owner: 
+                  span(style='color:red') *
+                .col-md-9
+                  input#textinput.form-control.input-md(name='lead_owner', type='text', placeholder='', value="#{session.salesId}", disabled='')
+                  // <span class="help-block">Write your name please</span>
+          .col-md-12
+            hr
+          .row
+            .col-md-6
+              // Image/attachment input
+              .form-group
+                label.col-md-3.control-label(for='uploaded_file') Select a file to upload:
+                .col-md-9
+                  input(type='file', name='first')
+                  br
+                  input(type='file', name='second')
+          br
+          br
+          legend(style='font-size:14px;')
+            | Mandatory fields marked with 
+            span(style='color:red') *
+          // Button (Double)
+          .form-group
+            label.col-md-6.control-label(for='button1id') Please check all fields before submitting the form!
+            .col-md-6
+              button#button1id.btn.btn-success.btn-lg(type="submit") Submit
+              button.btn.btn-default.btn-lg(name='button2id', type='reset') Clear form
+ 

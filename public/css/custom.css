@@ -1,0 +1,7 @@
+.login {
+	background: white;
+}
+.login input, .login button {
+		margin: 1%;
+	}
+}

@@ -1,0 +1,98 @@
+extends ./header.jade
+
+block scripts
+  script(src='/js/init.js')
+
+block body
+    section.section
+      .container
+        if success
+          h2 Your survey has been completed succesfully
+          a#button1id.btn.btn-success.btn-lg(href="/", style="margin:2%") New One
+        .form-horizontal
+          fieldset
+            br
+            legend(style='font-size:14px;')
+              | Basic Information: 
+              span(style='color:red') *
+            .row
+              // Text input
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='textinput')
+                  | Company 
+                  span(style='color:red') *
+                .col-md-9
+                  .form-control-static #{client.company}
+              // Text input
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='textinput')
+                  | Name 
+                  span(style='color:red') *
+                .col-md-9
+                  .form-control-static #{client.name}
+            .row
+              // Text input
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='textinput') Event
+                .col-md-9
+                  .form-control-static #{client.event}
+              // Appended Input
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='appendedtext') Date
+                .col-md-9
+                  .form-group
+                    input#date.form-control-static(name='event_date', style='margin-left: 13px;', disabled='')
+            .col-md-12
+              hr
+            .row
+              // Multiple Radios (inline)
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='priority') Priority
+                .col-md-9
+                  .form-control-static #{client.priority}
+              // Multiple Checkboxes (inline)
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='company_size')
+                  | Company Size 
+                  span(style='color:red') *
+                .col-md-9
+                  .form-control-static #{client.company_size}
+            .col-md-12
+              hr
+            .row
+              // Multiple Checkboxes (inline)
+              .form-group.col-md-6
+                label.col-md-3.control-label(for='status') Status
+                .col-md-9
+                  .form-control-static #{client.status}
+
+            .col-md-12
+              hr
+            .row
+              .col-md-6
+                // Textarea
+                .form-group
+                  label.col-md-3.control-label(for='textarea') Notes/Opportunity
+                  .col-md-9
+                    textarea#textarea.form-control(name='notes', rows='7') #{client.notes}
+              .col-md-6
+                // Textarea
+                .form-group
+                  label.col-md-3.control-label(for='textinput')
+                    | Lead owner: 
+                    span(style='color:red') *
+                  .col-md-9
+                    .form-control-static #{client.lead_owner}
+            .col-md-12
+              hr
+            .row
+              .col-md-9
+                // Image/attachment input
+                .form-group
+                  if client.firstImage
+                    label.col-md-3.control-label(for='uploaded_file') Uploaded files:
+                    .col-md-4
+                      img(src='#{client.firstImage}')
+                    if client.secondImage
+                      .col-md-4
+                        img(src='#{client.secondImage}')

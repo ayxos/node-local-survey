@@ -1,0 +1,21 @@
+extends ./header.jade
+
+block body
+  table.table
+    thead.thead-inverse
+      tr
+        th #
+        th Company
+        th Name
+        th Lead Owner
+        th Link
+
+    tbody
+      each client, index in clients
+        tr
+          th(scope="row") #{index}
+          td #{client.company}
+          td #{client.name}
+          td #{client.lead_owner}
+          td 
+            a(href='data/#{client._id}') link
