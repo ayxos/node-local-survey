@@ -1,4 +1,6 @@
 # Are you a company? do you need a survey for customers inside a big event (like MWC)?
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ayxos/node-local-survey.svg)](https://greenkeeper.io/)
 - Lightweight implementation of the "MEAN Stack"
 by Marco Antonio Pajares
 ## Modular, easy-to-use (yet powerful) survey.
